@@ -1,8 +1,5 @@
 from template_utils.markup import formatter
 
-
-
-
 def typogridown(text, **kwargs):
     from BeautifulSoup import BeautifulSoup
     from BeautifulSoup import BeautifulStoneSoup
@@ -15,12 +12,6 @@ def typogridown(text, **kwargs):
     return unicode(soup).replace('<p><div', '<div').replace('</div>\n\n</p>', '</div>\n\n')
 
 formatter.register('typogridown', typogridown)
-
-
-
-
-
-
 
 def typygmentdown(text, **kwargs):
     """

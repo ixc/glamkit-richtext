@@ -6,6 +6,7 @@ from django.template import Parser
 from django.template.defaulttags import load
 
 p = Parser([])
+filters = []
 def load_library(lib_name):
     load(p, type("", (), {"contents": "load %s" % lib_name}))    
 
@@ -13,7 +14,6 @@ register = template.Library()
 
 if hasattr(settings, "PRETTIFY_FILTERS"):
     libraries = set()
-    filters = []
     for f in settings.PRETTIFY_FILTERS:
         lib_name, func_name = f.split(".")
         libraries.add(lib_name)
